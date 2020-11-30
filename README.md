@@ -126,21 +126,21 @@ http://localhost:8765/currency-conversion-service//currency-converter-feign/from
 
 # Distributed tracing with zipkin
 1- installation erlang https://erlang.org/download/otp_versions_tree.html</br>
-2-installer RabbitMq  https://www.rabbitmq.com/install-windows.html
-	 pour lancer RabbitMq :
-		 1 ajouter C:\Program Files\RabbitMQ Server\rabbitmq_server-3.8.9\sbin dans path
-		 2 tappez rabbitmq-server
-	 pour stopper RabbitMq :
-		 1-rabbitmqctl  stop
+2-installer RabbitMq  https://www.rabbitmq.com/install-windows.html</br>
+	 pour lancer RabbitMq : </br>
+		 1 ajouter C:\Program Files\RabbitMQ Server\rabbitmq_server-3.8.9\sbin dans path </br>
+		 2 tappez rabbitmq-server </br>
+	 pour stopper RabbitMq : </br>
+		 1-rabbitmqctl  stop </br>
  
-3-Running Zipkin on Windows:  https://zipkin.io/pages/quickstart
-				curl -sSL https://zipkin.io/quickstart.sh | bash -s
+3-Running Zipkin on Windows:  https://zipkin.io/pages/quickstart </br>
+				curl -sSL https://zipkin.io/quickstart.sh | bash -s </br>
 				java -jar zipkin.jar
 				
-				pour windowq:
+				pour windowq: </br>
 				
-				set RABBIT_URI=amqp://localhost
-				java -jar zipkin-server-2.7.0-exec.jar
+				set RABBIT_URI=amqp://localhost </br>
+				java -jar zipkin-server-2.7.0-exec.jar</br>
 				
-http://127.0.0.1:9411/zipkin/ 
+http://127.0.0.1:9411/zipkin/  </br>
 http://localhost:8080/actuator/bus-refresh  
