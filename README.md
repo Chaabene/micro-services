@@ -116,16 +116,16 @@
 
 
 # micro-services Urls
-#http://localhost:8888/limits-service/default
-http://localhost:8888/limits-service/dev        http://localhost:8888/limits-service/qa
-http://localhost:8000/h2-console/
+#http://localhost:8888/limits-service/default </br>
+http://localhost:8888/limits-service/dev        http://localhost:8888/limits-service/qa </br>
+http://localhost:8000/h2-console/ </br>
 
-http://localhost:8761/   Eureka
-http://localhost:8765/currency-exchange-service/currency-exchange/from/euro/to/dinar   using api Gateway Zuul
-http://localhost:8765/currency-conversion-service//currency-converter-feign/from/euro/to/dinar/quantity/1000   using api Gateway Zuul
+http://localhost:8761/   Eureka </br>
+http://localhost:8765/currency-exchange-service/currency-exchange/from/euro/to/dinar   using api Gateway Zuul </br>
+http://localhost:8765/currency-conversion-service//currency-converter-feign/from/euro/to/dinar/quantity/1000   using api Gateway Zuul </br>
 
 # Distributed tracing with zipkin
-1- installation erlang https://erlang.org/download/otp_versions_tree.html
+1- installation erlang https://erlang.org/download/otp_versions_tree.html</br>
 2-installer RabbitMq  https://www.rabbitmq.com/install-windows.html
 	 pour lancer RabbitMq :
 		 1 ajouter C:\Program Files\RabbitMQ Server\rabbitmq_server-3.8.9\sbin dans path
