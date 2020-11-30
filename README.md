@@ -1,59 +1,68 @@
 
+
 #Modules:
 
-1-Eureka: naming server<br />
-	server side:<br />
-		annotation:@EnableEurekaServer<br />
-		properties:<br />
-					spring.application.name=netflix-eurika-naming-server<br />
-					server.port=8761<br />
-					eureka.client.register-with-eureka=false<br />
-					eureka.client.fetch-registry=false<br />
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-config</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
-		</dependency>
+1-Eureka: naming server
+
+    server side:
+   				annotation:@EnableEurekaServer
+   				properties:
+   							spring.application.name=netflix-eurika-naming-server
+   							server.port=8761
+   							eureka.client.register-with-eureka=false
+   							eureka.client.fetch-registry=false
+   				<dependency>
+   					<groupId>org.springframework.cloud</groupId>
+   					<artifactId>spring-cloud-starter-config</artifactId>
+   				</dependency>
+   				<dependency>
+   					<groupId>org.springframework.cloud</groupId>
+   					<artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+   				</dependency>
 		
 	client side:
-		annotation:@EnableDiscoveryClient
-		properties: eureka.client.service-url.default-zone=http://localhost:8761/eureka
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-		</dependency>
+			annotation:@EnableDiscoveryClient
+			properties: eureka.client.service-url.default-zone=http://localhost:8761/eureka
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+			</dependency>
 
 
 
 2-Ribbon: load balancing client side
-		annotation:@RibbonClient(name = "currency-exchange-service")
-		properties:currency-exchange-service.ribbon.listOfServers=http://localhost:8000,http://localhost:8001   //without eureka naming server
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
-		</dependency>	
+	
+
+    annotation:@RibbonClient(name = "currency-exchange-service")
+    	properties:
+    	currency-exchange-service.ribbon.listOfServers=http://localhost:8000,http://localhost:8001   //without eureka naming server
+    	<dependency>
+    		<groupId>org.springframework.cloud</groupId>
+    		<artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
+    	</dependency>	
+
 3-feign: simple consommation of rest service
-		annotation:@EnableFeignClients("com.quick.start")/@FeignClient(name = "netflix-zuul-api-gatway-server")
-		exemple :
-					@FeignClient(name = "netflix-zuul-api-gatway-server")
-					@RibbonClient(name = "currency-exchange-service")
-					public interface CurrencyExchangeServiceProxy {
-					//	@GetMapping("/currency-exchange/from/{from}/to/{to}") without Zuul api gateway
-						@GetMapping("/currency-exchange-service/currency-exchange/from/{from}/to/{to}")
-						public CurrencyConversionBean retriveExchangeValue( @PathVariable String from, @PathVariable String to);
-					}
-		
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-config</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-openfeign</artifactId>
-		</dependency>
+	
+
+    annotation:@EnableFeignClients("com.quick.start")/@FeignClient(name = "netflix-zuul-api-gatway-server")
+    	exemple :
+    				@FeignClient(name = "netflix-zuul-api-gatway-server")
+    				@RibbonClient(name = "currency-exchange-service")
+    				public interface CurrencyExchangeServiceProxy {
+    				//	@GetMapping("/currency-exchange/from/{from}/to/{to}") without Zuul api gateway
+    					@GetMapping("/currency-exchange-service/currency-exchange/from/{from}/to/{to}")
+    					public CurrencyConversionBean retriveExchangeValue( @PathVariable String from, @PathVariable String to);
+    				}
+    	
+    	<dependency>
+    		<groupId>org.springframework.cloud</groupId>
+    		<artifactId>spring-cloud-starter-config</artifactId>
+    	</dependency>
+    	<dependency>
+    		<groupId>org.springframework.cloud</groupId>
+    		<artifactId>spring-cloud-starter-openfeign</artifactId>
+    	</dependency>
+
 3-zuul : api gateway ===> - auth, autorization,security
 						  - Rate Limits
 						  - Fault tolerance (default response)
