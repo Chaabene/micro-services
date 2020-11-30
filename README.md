@@ -1,14 +1,14 @@
 
 #Modules:
 
-1-Eureka: naming server
-	server side:
-		annotation:@EnableEurekaServer
-		properties:
-					spring.application.name=netflix-eurika-naming-server
-					server.port=8761
-					eureka.client.register-with-eureka=false
-					eureka.client.fetch-registry=false
+1-Eureka: naming server<br />
+	server side:<br />
+		annotation:@EnableEurekaServer<br />
+		properties:<br />
+					spring.application.name=netflix-eurika-naming-server<br />
+					server.port=8761<br />
+					eureka.client.register-with-eureka=false<br />
+					eureka.client.fetch-registry=false<br />
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-config</artifactId>
