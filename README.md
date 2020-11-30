@@ -122,7 +122,7 @@ http://localhost:8000/h2-console/ </br>
 
 http://localhost:8761/   Eureka </br>
 http://localhost:8765/currency-exchange-service/currency-exchange/from/euro/to/dinar   using api Gateway Zuul </br>
-http://localhost:8765/currency-conversion-service//currency-converter-feign/from/euro/to/dinar/quantity/1000   using api Gateway Zuul </br>
+http://localhost:8765/currency-conversion-service/currency-converter-feign/from/euro/to/dinar/quantity/1000   using api Gateway Zuul </br>
 
 # Distributed tracing with zipkin
 1- installation erlang https://erlang.org/download/otp_versions_tree.html</br>
